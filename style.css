@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    background-color: #141a20;
+}
+.fan_container {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+.fan {
+    position: relative;
+}
+.fan::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: radial-gradient(#4380e7, #063d5f);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 10px solid #2362d7;
+    transform: translate(-50%, -50%);
+}
+.blade {
+    position: absolute;
+    background-color: orange;
+    width: 70px;
+    height: 150px;
+    border-radius: 54% 46% 100% 0% / 36% 31% 69% 64%;
+}
+.blade1{
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-20deg);
+}
+.blade2{
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-200deg);
+}
+.blade3{
+    top: 50%;
+    right: -5px;
+    transform: translate(-100%, -50%) rotate(-110deg);
+}
+.blade4{
+    top: 50%;
+    left: -5px;
+    transform: translate(100%, -50%) rotate(65deg);
+}
+.stand{
+    background-color: #2362d7;
+    width: 20px;
+    height: 250px;
+    position: absolute;
+    margin-top: 300px;
+    z-index: -1;
+}
+.stand::after{
+    content: "";
+    width: 160px;
+    height: 30px;
+    background-color: orange;
+    bottom: 0;
+    position: absolute;
+    left: -70px;
+    border-radius: 10px 10px 0 0;
+}
+.checker {
+    position: absolute;
+    bottom: -45px;
+    left: 140px;
+    appearance: none;
+    background-color: orangered;
+    width: 25px;
+    height: 15px;
+    border-radius: 10px 10px 0 0;
+}
+.checker:checked {
+    height: 10px !important;
+}
+.checker:checked ~ .fan{
+    animation: swing 1s linear infinite;
+}
+@keyframes swing {
+    to {
+        transform: rotate(360deg);
+    }
+}
